@@ -1,0 +1,56 @@
+server:
+    port: 8082
+
+spring:
+    redis:
+        host: 192.168.100.3
+        port: 6379
+        jedis:
+            pool:
+                max-active: 8
+                max-wait: -1
+                max-idle: 500
+                min-idle: 0
+    servlet:
+        multipart:
+            max-request-size: 200MB
+            max-file-size: 200MB
+    datasource:
+        username: root
+        password: brysj123
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://114.132.247.238:3306/file_system?serverTimezone=GMT%2b8&allowMultiQueries=true
+
+
+custom:
+    config:
+        ignores:
+            pattern[0]:
+                "/file/test"
+            pattern[1]:
+                "/user/login"
+            pattern[2]:
+                "/user/register"
+            pattern[3]:
+                "/test/**"
+            pattern[4]:
+                "/share/info"
+            pattern[5]:
+                "/share/vaild"
+            pattern[6]:
+                "/share/download"
+mybatis-plus:
+    configuration:
+        log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    global-config:
+        db-config:
+            logic-delete-field: status # 全局逻辑删除的实体字段名(since 3.3.0,配置后可以忽略不配置步骤2)
+            logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+            logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+
+jwt:
+    config:
+        key: xkcoding
+        ttl: 10000000000
+        remember: 604800000
+

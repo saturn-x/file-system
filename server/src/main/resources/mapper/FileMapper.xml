@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.file.mapper.FileMapper">
+    <insert id="insertFile" parameterType="com.example.file.domain.UploadTask"
+            useGeneratedKeys="true" keyProperty="id">
+        <!--插入 file 后 插入user file-->
+        insert into file (file_size, identify, file_url)
+        value (#{fileSize},#{identify},#{identify}"."#{extend});
+    </insert>
+</mapper>
